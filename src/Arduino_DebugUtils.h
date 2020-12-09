@@ -57,7 +57,9 @@ class Arduino_DebugUtils {
     void timestampOff();
 
     void print(int const debug_level, const char * fmt, ...);
+#ifndef ARDUINO_ARCH_MEGAAVR
     void print(int const debug_level, const __FlashStringHelper * fmt, ...);
+#endif
 
 
   private:

@@ -71,7 +71,7 @@ void Arduino_DebugUtils::print(int const debug_level, const char * fmt, ...)
   vPrint(fmt, args);
   va_end(args);
 }
-
+#ifndef ARDUINO_ARCH_MEGAAVR
 void Arduino_DebugUtils::print(int const debug_level, const __FlashStringHelper * fmt, ...)
 {
   if (!shouldPrint(debug_level))
@@ -87,6 +87,7 @@ void Arduino_DebugUtils::print(int const debug_level, const __FlashStringHelper 
   vPrint(fmt_str.c_str(), args);
   va_end(args);
 }
+#endif
 
 /******************************************************************************
    PRIVATE MEMBER FUNCTIONS
